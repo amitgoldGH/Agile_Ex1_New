@@ -14,9 +14,11 @@
       </Label>
       <Label layoutX="85.0" layoutY="106.0" text="NAME:" />
       <Label layoutX="85.0" layoutY="141.0" text="ID:" />
-      <Label fx:id="nameLbl" layoutX="141.0" layoutY="106.0" prefHeight="18.0" prefWidth="78.0" text="Label" />
-      <Label fx:id="idLbl" layoutX="141.0" layoutY="141.0" text="Label" />
-      <Label layoutX="85.0" layoutY="182.0" text="Registered Courses: " />
+      <Label fx:id="nameLbl" layoutX="141.0" layoutY="106.0" prefHeight="18.0" prefWidth="78.0" text="nameLbl" />
+      <Label fx:id="idLbl" layoutX="141.0" layoutY="141.0" text="idLbl" />
+      <Label layoutX="87.0" layoutY="200.0" text="Registered Courses: " />
       <TextArea fx:id="registeredCoursesArea" editable="false" layoutX="85.0" layoutY="223.0" prefHeight="146.0" prefWidth="408.0" />
+      <Label layoutX="85.0" layoutY="165.0" text="Year: " />
+      <Label fx:id="yrLbl" layoutX="141.0" layoutY="165.0" text="yrLbl" />
    </children>
 </AnchorPane>

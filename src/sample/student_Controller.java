@@ -17,11 +17,15 @@ public class student_Controller {
     @FXML
     private Label welcomeLbl;
     @FXML
+    private Label yrLbl;
+
+    @FXML
     void initialize() {
         if (main_Student != null) {
             welcomeLbl.setText("Welcome " + main_Student.getName().split(" ")[0] + ".");
             nameLbl.setText(main_Student.getName().toUpperCase());
             idLbl.setText(main_Student.getId() + "");
+            yrLbl.setText(main_Student.getSchool_Year() + "");
             registeredCoursesArea.setText(main_Student.course_toString());
         }
     }
