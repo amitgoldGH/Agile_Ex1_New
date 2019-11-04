@@ -7,7 +7,7 @@ public class Lecturer {
     private int id;
     private int experience;
     private int salary;
-    private Vector<Course> assigned_Courses;
+    private Vector<Integer> assigned_Courses;
 
 
     public Lecturer(String name, int id, int experience, int salary) {
@@ -15,26 +15,26 @@ public class Lecturer {
         this.id = id;
         this.experience = experience;
         this.salary = salary;
-        this.assigned_Courses = new Vector<Course>();
+        this.assigned_Courses = new Vector<Integer>();
     }
     public void assign_Course(Course course) {
-        this.assigned_Courses.add(course);
+        this.assigned_Courses.add(course.getCourse_Id());
     }
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer();
         sb.append("Name: " + name + ", id: " + id + ", YoE: " + experience + ", Salary: " + salary + "\n" +
                 "Courses:\n");
-        for (Course c : assigned_Courses) {
-            sb.append(c.toString() + "\n");
+        for (int i : assigned_Courses) {
+            sb.append(login_Controller.college.getAll_Courses().get(i).toString() + "\n");
         }
         return sb.toString();
     }
 
     public String course_toString() {
         StringBuffer sb = new StringBuffer();
-        for (Course c : assigned_Courses) {
-            sb.append(c.toString() + "\n");
+        for (int i : assigned_Courses) {
+            sb.append(login_Controller.college.getAll_Courses().get(i).toString() + "\n");
         }
         return sb.toString();
     }
@@ -63,10 +63,10 @@ public class Lecturer {
     public void setSalary(int salary) {
         this.salary = salary;
     }
-    public Vector<Course> getAssigned_Courses() {
+    public Vector<Integer> getAssigned_Courses() {
         return assigned_Courses;
     }
-    public void setAssigned_Courses(Vector<Course> assigned_Courses) {
+    public void setAssigned_Courses(Vector<Integer> assigned_Courses) {
         this.assigned_Courses = assigned_Courses;
     }
 }

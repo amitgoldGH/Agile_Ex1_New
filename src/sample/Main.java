@@ -18,7 +18,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        login_Controller.college = new College("Afeka");
+//        login_Controller.setCollege(new College("Afeka"));
         Administrator admin = new Administrator("Amit", 0);
         login_Controller.college.setAdmin(admin);
         Lecturer l = new Lecturer("Johnny", 123, 5, 5500);

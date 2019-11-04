@@ -7,9 +7,6 @@ import java.util.Vector;
 public class College {
     private String college_Name;
     private Administrator admin;
-    //private Vector<Lecturer> all_Lecturers;
-    //private Vector<Student> all_Students;
-    //private Vector<Course> all_Courses;
     private HashMap<Integer, Lecturer> all_Lecturers = new HashMap<Integer, Lecturer>();
     private HashMap<Integer, Student> all_Students = new HashMap<Integer, Student>();
     private HashMap<Integer, Course> all_Courses = new HashMap<Integer, Course>();

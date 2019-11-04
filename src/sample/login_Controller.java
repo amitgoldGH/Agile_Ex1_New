@@ -15,6 +15,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class login_Controller {
+
+
     static protected College college;
 
     static public void passCollege(College c) {
@@ -64,12 +66,14 @@ public class login_Controller {
             switch (role) {
                 case "Student" : {
                     System.out.println("Student selected");
-                    if (college.getAll_Students().containsKey(id)) {
-                        if (college.getAll_Students().get(id).getName().equalsIgnoreCase(name))
+                    if (college.getAll_Students().containsKey(Integer.parseInt(id))) {
+                        System.out.println("Key found");
+                        if (college.getAll_Students().get(Integer.parseInt(id)).getName().equalsIgnoreCase(name)) {
                             flag = true;
-                        student_Controller.passStudent(college.getAll_Students().get(id));
-                        root = FXMLLoader.load(getClass().getResource("studentPage.fxml"));
-                        break;
+                            student_Controller.passStudent(college.getAll_Students().get(Integer.parseInt(id)));
+                            root = FXMLLoader.load(getClass().getResource("studentPage.fxml"));
+                            break;
+                        }
                     }
                     /*
                     for (Student s : college.getAll_Students()) {
@@ -90,10 +94,10 @@ public class login_Controller {
                 }
                 case "Lecturer" : {
                     System.out.println("Lecturer selected");
-                    if (college.getAll_Lecturers().containsKey(id)) {
-                        if (college.getAll_Lecturers().get(id).getName().equalsIgnoreCase(name))
+                    if (college.getAll_Lecturers().containsKey(Integer.parseInt(id))) {
+                        if (college.getAll_Lecturers().get(Integer.parseInt(id)).getName().equalsIgnoreCase(name))
                             flag = true;
-                        lecturer_Controller.passLecturer(college.getAll_Lecturers().get(id));
+                        lecturer_Controller.passLecturer(college.getAll_Lecturers().get(Integer.parseInt(id)));
                         root = FXMLLoader.load(getClass().getResource("lecturerPage.fxml"));
                         break;
                     }
@@ -153,5 +157,12 @@ public class login_Controller {
 
     }
 
+    public static College getCollege() {
+        return college;
+    }
+
+    public static void setCollege(College college) {
+        login_Controller.college = college;
+    }
 
 }
