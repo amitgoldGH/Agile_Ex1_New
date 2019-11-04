@@ -38,8 +38,6 @@ public class Main extends Application {
         admin.register_Student_To_Course(san, c2);
         admin.register_Student_To_Course(sun, c2);
 
-        System.out.println(l.toString());
-
         login_Controller.passCollege(Afeka);
         launch(args);
         System.exit(0);

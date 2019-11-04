@@ -33,11 +33,6 @@ public class student_Controller {
     static public void passStudent(Student s) {
         if (main_Student == null) {
             main_Student = s;
-            /*
-            main_Student = new Student(s.getName(), s.getId(), s.getSchool_Year(), s.getMonthly_Payment());
-            main_Student.setAssigned_Courses(s.getAssigned_Courses());
-             */
-
         }
     }
 
