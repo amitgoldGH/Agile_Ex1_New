@@ -18,9 +18,9 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        College Afeka = new College("Afeka");
+        login_Controller.college = new College("Afeka");
         Administrator admin = new Administrator("Amit", 0);
-        Afeka.setAdmin(admin);
+        login_Controller.college.setAdmin(admin);
         Lecturer l = new Lecturer("Johnny", 123, 5, 5500);
         Student san = new Student("San", 10, 2015, 1776);
         Student sun = new Student("Sun" , 11, 2016, 1896);
@@ -38,9 +38,9 @@ public class Main extends Application {
         admin.register_Student_To_Course(san, c2);
         admin.register_Student_To_Course(sun, c2);
 
-        System.out.println(l.toString());
+        //System.out.println(l.toString());
 
-        login_Controller.passCollege(Afeka);
+        //login_Controller.passCollege(Afeka);
         launch(args);
         System.exit(0);
     }

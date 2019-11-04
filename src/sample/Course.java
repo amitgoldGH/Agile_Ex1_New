@@ -39,4 +39,8 @@ public class Course {
         return course_Name + "(" + course_Id + ")"
                 + ", Lecturer: " + ((assigned_Lecturer != null) ? assigned_Lecturer.getName() : "None") + ", " + day + "(" + hours + ")" + ", " + semester;
     }
+
+    public int getCourse_Id() {
+        return course_Id;
+    }
 }
