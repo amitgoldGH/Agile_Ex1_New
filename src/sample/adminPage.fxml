@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.admin_Controller">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="133.0" layoutY="22.0" prefHeight="114.0" prefWidth="334.0" text="Administration page" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <Label layoutX="64.0" layoutY="136.0" text="NAME:" />
+      <Label layoutX="64.0" layoutY="167.0" text="ID:" />
+      <Label fx:id="nameLbl" layoutX="165.0" layoutY="136.0" text="nameLbl" />
+      <Label fx:id="idLbl" layoutX="165.0" layoutY="167.0" text="idLbl" />
+      <Label layoutX="64.0" layoutY="207.0" text="Monthly revenue:" />
+      <Label fx:id="revLbl" layoutX="165.0" layoutY="207.0" text="revLbl" />
+   </children>
+</AnchorPane>
