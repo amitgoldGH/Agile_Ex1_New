@@ -1,9 +1,10 @@
 package sample;
 
+import java.util.Map;
+
 public class Administrator {
     private String name;
     private int id;
-    private College college;
 
     public Administrator(String name, int id) {
         this.name = name;
@@ -15,31 +16,31 @@ public class Administrator {
         c.assign_Lecturer(l);
     }
 
-    public void register_Student_To_College(Student s) {
-        college.add_Student(s);
-    }
+    public void register_Student_To_College(Student s) { login_Controller.college.add_Student(s); }
     public void register_Lecturer_To_College(Lecturer l) {
-        college.add_Lecturer(l);
+        login_Controller.college.add_Lecturer(l);
     }
-    public void register_Course_To_College(Course c) { college.add_Course(c); }
+    public void register_Course_To_College(Course c) { login_Controller.college.add_Course(c); }
 
     public int monthly_Rev() {
         int monthly_Rev = 0;
-        for (Student s : this.college.getAll_Students())
+
+        for(Map.Entry<Integer, Student> entry : login_Controller.college.getAll_Students().entrySet())
+            monthly_Rev += entry.getValue().getMonthly_Payment();
+        for(Map.Entry<Integer, Lecturer> entry : login_Controller.college.getAll_Lecturers().entrySet()) {
+            monthly_Rev -= entry.getValue().getSalary();
+        }
+        /*
+        for (Student s : login_Controller.college.getAll_Students())
             monthly_Rev += s.getMonthly_Payment();
 
-        for (Lecturer l : this.college.getAll_Lecturers())
+        for (Lecturer l : login_Controller.college.getAll_Lecturers())
             monthly_Rev -= l.getSalary();
+        */
 
         return monthly_Rev;
     }
 
-    public void setCollege(College c) {
-        this.college = c;
-    }
-    public College getCollege() {
-        return college;
-    }
     public String getName() {
         return name;
     }

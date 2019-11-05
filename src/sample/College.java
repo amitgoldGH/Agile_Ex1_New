@@ -1,46 +1,44 @@
 package sample;
 
 import javax.management.loading.MLetContent;
+import java.util.HashMap;
 import java.util.Vector;
 
 public class College {
     private String college_Name;
     private Administrator admin;
-    private Vector<Lecturer> all_Lecturers;
-    private Vector<Student> all_Students;
-    private Vector<Course> all_Courses;
+    private HashMap<Integer, Lecturer> all_Lecturers = new HashMap<Integer, Lecturer>();
+    private HashMap<Integer, Student> all_Students = new HashMap<Integer, Student>();
+    private HashMap<Integer, Course> all_Courses = new HashMap<Integer, Course>();
 
     public boolean add_Lecturer(Lecturer l) {
-        if (!(all_Lecturers.contains(l))) {
-            all_Lecturers.add(l);
-            return true;
+        if (l != null && !(all_Lecturers.containsKey(l.getId()))) {
+                all_Lecturers.put(l.getId(), l);
+                return true;
         }
         else
             return false; // Already in college.
     }
     public boolean add_Student(Student s) {
-        if (!(all_Students.contains(s))) {
-            all_Students.add(s);
+        if (s != null && !(all_Students.containsKey(s.getId()))) {
+            all_Students.put(s.getId(), s);
             return true;
         }
         else
-            return false;
+            return false; // Already in college.
     }
     public boolean add_Course(Course c) {
-        if (!(all_Courses.contains(c))) {
-            all_Courses.add(c);
+        if (c != null && !(all_Courses.containsKey(c.getCourse_Id()))) {
+            all_Courses.put(c.getCourse_Id(), c);
             return true;
         }
         else
-            return false;
+            return false; // Already in college.
     }
 
     public College(String name) {
         this.college_Name = name;
         this.admin = null;
-        all_Lecturers = new Vector<Lecturer>();
-        all_Students = new Vector<Student>();
-        all_Courses = new Vector<Course>();
     }
     public College(String name, Administrator admin) {
         this(name);
@@ -52,10 +50,9 @@ public class College {
     public Administrator getAdmin() { return admin; }
     public void setAdmin(Administrator admin) {
         this.admin = admin;
-        admin.setCollege(this);
     }
 
-    public Vector<Lecturer> getAll_Lecturers() { return all_Lecturers; }
-    public Vector<Student> getAll_Students() { return all_Students; }
-    public Vector<Course> getAll_Courses() { return all_Courses; }
+    public HashMap<Integer, Lecturer> getAll_Lecturers() { return all_Lecturers; }
+    public HashMap<Integer, Student> getAll_Students() { return all_Students; }
+    public HashMap<Integer, Course> getAll_Courses() { return all_Courses; }
 }

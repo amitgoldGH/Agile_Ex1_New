@@ -1,18 +1,16 @@
 package sample;
 
-import java.util.Vector;
-
 public class Course {
     private String course_Name;
     private int course_Id;
     private String day;
     private String hours;
     private String semester;
-    private Lecturer assigned_Lecturer;
+    private int assigned_Lecturer_Id;
 
     public Course(String course_Name, int course_Id, String day, String hours, String semester, Lecturer lecturer) {
         this(course_Name, course_Id, day, hours, semester);
-        this.assigned_Lecturer = lecturer;
+        this.assigned_Lecturer_Id = lecturer.getId();
         if (lecturer != null)
             lecturer.assign_Course(this);
     }
@@ -23,20 +21,24 @@ public class Course {
         this.day = day;
         this.hours = hours;
         this.semester = semester;
-        this.assigned_Lecturer = null;
+        this.assigned_Lecturer_Id = -1;
     }
     public void assign_Lecturer(Lecturer l) {
-        if (l != this.assigned_Lecturer) { //Check if already assigned to this course
-            if (this.assigned_Lecturer != null) { // Check if another lecturer already assigned to this course
-                this.assigned_Lecturer.getAssigned_Courses().remove(this);
+        if (l.getId() != this.assigned_Lecturer_Id) { //Check if already assigned to this course
+            if (this.assigned_Lecturer_Id > 0) { // Check if another lecturer already assigned to this course
+                login_Controller.college.getAll_Lecturers().get(assigned_Lecturer_Id).getAssigned_Courses().remove(this);
             }
-            this.assigned_Lecturer = l;
+            this.assigned_Lecturer_Id = l.getId();
             l.assign_Course(this);
         }
     }
     @Override
     public String toString() {
         return course_Name + "(" + course_Id + ")"
-                + ", Lecturer: " + ((assigned_Lecturer != null) ? assigned_Lecturer.getName() : "None") + ", " + day + "(" + hours + ")" + ", " + semester;
+                + ", Lecturer: " + ((assigned_Lecturer_Id > 0) ? login_Controller.college.getAll_Lecturers().get(assigned_Lecturer_Id).getName() : "None") + ", " + day + "(" + hours + ")" + ", " + semester;
+    }
+
+    public int getCourse_Id() {
+        return course_Id;
     }
 }

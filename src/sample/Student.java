@@ -7,19 +7,19 @@ public class Student {
     private int id;
     private int school_Year;
     private int monthly_Payment;
-    private Vector<Course> assigned_Courses;
+    private Vector<Integer> assigned_Courses;
 
     public Student(String name, int id, int school_Year, int monthly_Payment) {
         this.name = name;
         this.id = id;
         this.school_Year = school_Year;
         this.monthly_Payment = monthly_Payment;
-        this.assigned_Courses = new Vector<Course>();
+        this.assigned_Courses = new Vector<Integer>();
     }
 
     public boolean register_To_Course(Course c) {
         if (!(assigned_Courses.contains(c))) {
-            assigned_Courses.add(c);
+            assigned_Courses.add(c.getCourse_Id());
             return true;
         }
         else
@@ -35,8 +35,8 @@ public class Student {
     }
     public String course_toString() {
         StringBuffer sb = new StringBuffer();
-        for (Course c : assigned_Courses) {
-            sb.append(c.toString() + "\n");
+        for (int i : assigned_Courses) {
+            sb.append(login_Controller.college.getAll_Courses().get(i).toString() + "\n");
         }
         return sb.toString();
     }
@@ -65,10 +65,10 @@ public class Student {
     public void setMonthly_Payment(int monthly_Payment) {
         this.monthly_Payment = monthly_Payment;
     }
-    public Vector<Course> getAssigned_Courses() {
+    public Vector<Integer> getAssigned_Courses() {
         return assigned_Courses;
     }
-    public void setAssigned_Courses(Vector<Course> assigned_Courses) {
+    public void setAssigned_Courses(Vector<Integer> assigned_Courses) {
         this.assigned_Courses = assigned_Courses;
     }
 }
